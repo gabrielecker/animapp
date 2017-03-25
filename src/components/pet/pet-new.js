@@ -1,8 +1,7 @@
 import React, {Component, PropTypes} from 'react';
-import {Grid, Form, Divider, Checkbox, Image, Button} from 'semantic-ui-react';
-import ScreenHeader from '../../../components/screen-header';
-import ScreenDescription from '../../../components/screen-description';
-import ImageUploader from '../../../components/image-uploader';
+import {Grid, Form, Divider, Checkbox, Image, Segment} from 'semantic-ui-react';
+import ScreenHeader from '../shared/screen-header';
+import ImageUploader from '../shared/image-uploader';
 
 export default class PetNew extends Component{
 
@@ -17,14 +16,11 @@ export default class PetNew extends Component{
                     <ScreenHeader>Cadastrar Pet</ScreenHeader>
                 </Grid.Row>
                 <Grid.Row>
-                    <Grid.Column width={12}>
-                        <ScreenDescription>
+                    <Grid.Column>
+                        <Segment>
                             <p>Preencha todos os campos corretamente para cadastrar o pet, afinal, quanto mais informações e fotos você por, mais fácil será para encontrarmos um novo lar!</p>
                             <p>Por gentileza não abuse dessa página.</p>
-                        </ScreenDescription>
-                    </Grid.Column>
-                    <Grid.Column width={4}>
-                        <Image src='/assets/image/dog_pet.png' size='tiny'/>
+                        </Segment>
                     </Grid.Column>
                 </Grid.Row>
                 <Grid.Row><Divider horizontal>Formulário</Divider></Grid.Row>
@@ -50,6 +46,9 @@ export default class PetNew extends Component{
                             </Form.Group>
                             <Form.Group>
                                 <Form.TextArea label='Complemento' placeholder='Informações complementares do pet...' width={16}/>
+                            </Form.Group>
+                            <Form.Group>
+                                <Form.Button positive fluid width={16}>Cadastrar</Form.Button>
                             </Form.Group>
                         </Form>
                     </Grid.Column>
