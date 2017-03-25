@@ -1,13 +1,11 @@
-import React,{Component} from 'react';
-import {Item, Label, Button, Icon} from 'semantic-ui-react';
+import React, { Component } from 'react';
 
-class PetInfo extends Component{
-    render(){
-        const {pet} = this.props;
-        return(
-            <div>pet info</div>
-        )
-    }
+class PetInfo extends Component {
+  render() {
+    return (
+      <div>pet info</div>
+    );
+  }
 }
 
 export default PetInfo;

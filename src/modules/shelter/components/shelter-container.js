@@ -1,10 +1,10 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 
-class ShelterContainer extends Component{
-  render(){
-    return(
+class ShelterContainer extends Component {
+  render() {
+    return (
       <div>{this.props.children}</div>
-    )
+    );
   }
 }
 

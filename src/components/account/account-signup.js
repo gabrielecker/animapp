@@ -1,15 +1,11 @@
-import React,{Component, PropTypes} from 'react';
-import {Grid, Form, Segment, Divider} from 'semantic-ui-react';
+import React, { Component, PropTypes } from 'react';
+import { Grid, Form, Segment, Divider } from 'semantic-ui-react';
 import ScreenHeader from '../shared/screen-header';
 
-class AccountSignUp extends Component{
-
-  static contextTypes = {
-    router: PropTypes.object
-  }
+class AccountSignUp extends Component {
 
   render() {
-    return(
+    return (
       <Grid stackable>
         <Grid.Row>
           <ScreenHeader>Cadastrar Usuário</ScreenHeader>
@@ -27,12 +23,12 @@ class AccountSignUp extends Component{
           <Grid.Column>
             <Form>
               <Form.Group>
-                <Form.Input label='Nome' width={8} />
-                <Form.Input label='Sobrenome' width={8} />
+                <Form.Input label="Nome" width={8} />
+                <Form.Input label="Sobrenome" width={8} />
               </Form.Group>
               <Form.Group >
-                <Form.Input label='Email' width={8} />
-                <Form.Input label='Senha' type='password' width={8} />
+                <Form.Input label="Email" width={8} />
+                <Form.Input label="Senha" type="password" width={8} />
               </Form.Group>
               <Form.Group>
                 <Form.Button positive fluid width={16}>Cadastrar</Form.Button>
@@ -41,7 +37,7 @@ class AccountSignUp extends Component{
           </Grid.Column>
         </Grid.Row>
       </Grid>
-    )
+    );
   }
 
 }

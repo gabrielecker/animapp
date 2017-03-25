@@ -4,7 +4,7 @@ import Immutable from 'immutable';
 
 const initialstate = Immutable.fromJS({
   classesList: [],
-  isClassesLoading: false
+  isClassesLoading: false,
 });
 
 export default function reducer(state = initialstate, action = {}) {
@@ -13,5 +13,5 @@ export default function reducer(state = initialstate, action = {}) {
       return home.fetchClasses(state, action);
     default:
       return state;
-  };
+  }
 }

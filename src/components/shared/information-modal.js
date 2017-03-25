@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
-import {Button, Header, Modal, Icon} from 'semantic-ui-react';
+import React, { Component } from 'react';
+import { Button, Modal, Icon } from 'semantic-ui-react';
 
-class InformationModal extends Component{
-  render(){
-    const {open, confirmButton, informationButton, cancelButton, information} = this.props;
-    return(
+class InformationModal extends Component {
+  render() {
+    const { open, confirmButton, informationButton, cancelButton, information } = this.props;
+    return (
       <Modal open={open}>
-        <Modal.Header><Icon name='news'/> Informações</Modal.Header>
+        <Modal.Header><Icon name="news" /> Informações</Modal.Header>
         <Modal.Content>
           <Modal.Description>
             {information}
@@ -18,8 +18,25 @@ class InformationModal extends Component{
           {confirmButton ? <Button positive onClick={confirmButton.action}>{confirmButton.label}</Button> : ''}
         </Modal.Actions>
       </Modal>
-    )
+    );
   }
 }
+
+InformationModal.propTypes = {
+  open: React.PropTypes.isRequired,
+  confirmButton: React.PropTypes.shape({
+    action: React.PropTypes.function.isRequired,
+    label: React.PropTypes.string.isRequired,
+  }),
+  informationButton: React.PropTypes.shape({
+    action: React.PropTypes.function.isRequired,
+    label: React.PropTypes.string.isRequired,
+  }),
+  cancelButton: React.PropTypes.shape({
+    action: React.PropTypes.function.isRequired,
+    label: React.PropTypes.string.isRequired,
+  }),
+  information: React.PropTypes.string.isRequired,
+};
 
 export default InformationModal;

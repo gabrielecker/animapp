@@ -1,10 +1,10 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 
-class AccountContainer extends Component{
-  render(){
-    return(
+class AccountContainer extends Component {
+  render() {
+    return (
       <div>{this.props.children}</div>
-    )
+    );
   }
 }
 

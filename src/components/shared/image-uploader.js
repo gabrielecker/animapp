@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
-import {Button, Header, Modal, Icon} from 'semantic-ui-react';
+import React, { Component } from 'react';
+import { Button, Modal, Icon } from 'semantic-ui-react';
 
-class ImageUploader extends Component{
-  render(){
-    return(
+class ImageUploader extends Component {
+  render() {
+    return (
       <Modal trigger={<Button>Enviar fotos</Button>}>
-        <Modal.Header><Icon name='picture'/> Selecione a foto</Modal.Header>
+        <Modal.Header><Icon name="picture" /> Selecione a foto</Modal.Header>
         <Modal.Content>
           <Modal.Description>
             Test
@@ -18,8 +18,8 @@ class ImageUploader extends Component{
           <Button positive>Enviar</Button>
         </Modal.Actions>
       </Modal>
-        )
-      }
+    );
+  }
 }
 
 export default ImageUploader;
