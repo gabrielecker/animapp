@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import {Grid,Item} from 'semantic-ui-react';
-import ScreenHeader from '../../../components/screen-header';
+import ScreenHeader from '../shared/screen-header';
 import PetCard from './pet-card';
 import PetPagination from'./pet-pagination';
 import PetSearch from './pet-search';
@@ -54,8 +54,6 @@ class PetList extends Component {
                         <PetPagination/>
                     </Grid.Column>
                 </Grid.Row>
-
-
             </Grid>
         )
     }

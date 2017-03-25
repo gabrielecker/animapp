@@ -44,3 +44,6 @@ bower_components
 
 #others
 npm-debug.log
+
+#build
+bundle.js

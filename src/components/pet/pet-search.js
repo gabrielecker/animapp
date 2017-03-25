@@ -14,8 +14,8 @@ class PetSearch extends Component{
                     <Form.Select label='Sexo' options={[{key: 'm', text:'Macho', value:'m'}, {key: 'f', text:'Fêmea', value:'f'}]} width={8}/>
                 </Form.Group>
                 <Form.Group>
-                    <Form.Field control={Checkbox} label={<label>Castrado</label>} width={8}/>
-                    <Form.Field control={Checkbox} label={<label>Vermifugado</label>} width={8}/>
+                    <Form.Field control={Checkbox} label={<label>Castrado</label>} />
+                    <Form.Field control={Checkbox} label={<label>Vermifugado</label>} />
                 </Form.Group>
                 <Form.Group>
                     <Form.Button><Icon name='search' />Pesquisar</Form.Button>

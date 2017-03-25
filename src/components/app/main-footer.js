@@ -14,7 +14,7 @@ class MainFooter extends Component{
         return(
             <div>
                 <Divider hidden/>
-                <Grid>
+                <Grid stackable>
                     <Grid.Row>
                         <Grid.Column width={4} textAlign='center'>
                             <Link to='/about'>Sobre</Link>

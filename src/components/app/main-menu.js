@@ -16,7 +16,7 @@ class MainMenu extends Component {
         {path: "/pets", description: "Adotar"},
         {description: "Cadastrar", menuItems: [
           {path: "/pets/new", description:"Pet"},
-          {path: "/shelters/new", description: "Lar temporário"}
+          {path: "/shelters/new", description: "Lar temporário", disabled: true}
         ]},
         {path: "/account/login", description: "Login", posRight: true},
         {path: "/account/signup", description: "Registro", posRight: true}
@@ -28,7 +28,7 @@ class MainMenu extends Component {
                 {menuItems.filter(menuItem => !menuItem.posRight).map(menuItem => this.renderItem(menuItem.menuItems ? "dropDown" : "menuItem", menuItem))}
 
                 <Menu.Menu stackable position='right'>
-                {menuItems.filter(menuItem => !menuItem.posRight).map(menuItem => this.renderItem(menuItem.menuItems ? "dropDown" : "menuItem", menuItem))}
+                {menuItems.filter(menuItem => menuItem.posRight).map(menuItem => this.renderItem(menuItem.menuItems ? "dropDown" : "menuItem", menuItem))}
                 </Menu.Menu>
             </Menu>
         )
@@ -44,7 +44,7 @@ class MainMenu extends Component {
     renderMenuItem(config) {
         return (
             <Link to={config.path}>
-                <Menu.Item link>
+                <Menu.Item disabled={config.disabled} link>
                     {config.description}
                 </Menu.Item>
             </Link>
@@ -57,7 +57,7 @@ class MainMenu extends Component {
                 <Dropdown.Menu>
                     {config.menuItems.map(menuItem => (
                             <Link to={menuItem.path}>
-                                <Dropdown.Item link>{menuItem.description}</Dropdown.Item>
+                                <Dropdown.Item link disabled={menuItem.disabled}>{menuItem.description}</Dropdown.Item>
                             </Link>
                       )
                     )}
