@@ -10,3 +10,8 @@ export default class ScreenDescription extends Component {
     );
   }
 }
+
+
+ScreenDescription.propTypes = {
+  children: React.PropTypes.string.isRequired,
+};

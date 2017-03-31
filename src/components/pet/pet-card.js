@@ -3,7 +3,7 @@ import { Item, Label, Button, Icon } from 'semantic-ui-react';
 
 class PetCard extends Component {
   renderPetSizeTag() {
-    switch (this.pet.size) {
+    switch (this.props.pet.size) {
       case 's':
         return <Label>Porte pequeno</Label>;
       case 'm':

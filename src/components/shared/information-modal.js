@@ -23,17 +23,17 @@ class InformationModal extends Component {
 }
 
 InformationModal.propTypes = {
-  open: React.PropTypes.isRequired,
+  open: React.PropTypes.boolean,
   confirmButton: React.PropTypes.shape({
-    action: React.PropTypes.function.isRequired,
+    action: React.PropTypes.function,
     label: React.PropTypes.string.isRequired,
   }),
   informationButton: React.PropTypes.shape({
-    action: React.PropTypes.function.isRequired,
+    action: React.PropTypes.function,
     label: React.PropTypes.string.isRequired,
   }),
   cancelButton: React.PropTypes.shape({
-    action: React.PropTypes.function.isRequired,
+    action: React.PropTypes.function,
     label: React.PropTypes.string.isRequired,
   }),
   information: React.PropTypes.string.isRequired,

@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Grid, Divider } from 'semantic-ui-react';
@@ -33,7 +33,7 @@ class MainFooter extends Component {
 
 }
 
-function mapStateToProps(state) {
+function mapStateToProps() {
   return {
 
   };

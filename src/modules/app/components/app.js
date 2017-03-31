@@ -13,23 +13,6 @@ export default class App extends Component {
     this.state = { showInformationModal: true };
   }
 
-  render() {
-    return (
-      <div>
-        <Container>
-          <MainMenu />
-          <Grid stackable>
-            <Grid.Column>
-              {this.props.children}
-            </Grid.Column>
-          </Grid>
-          <MainFooter />
-        </Container>
-        {this.renderInformationModal()};
-			</div>
-    );
-  }
-
   renderInformationModal() {
     const confirmButton = {
       label: 'Continuar',
@@ -50,4 +33,25 @@ export default class App extends Component {
       />
     );
   }
+
+  render() {
+    return (
+      <div>
+        <Container>
+          <MainMenu />
+          <Grid stackable>
+            <Grid.Column>
+              {this.props.children}
+            </Grid.Column>
+          </Grid>
+          <MainFooter />
+        </Container>
+        {this.renderInformationModal()};
+      </div>
+    );
+  }
 }
+
+App.propTypes = {
+  children: React.PropTypes.object,
+};

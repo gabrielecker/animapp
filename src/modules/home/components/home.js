@@ -5,6 +5,20 @@ import ScreenHeader from '../../../components/shared/screen-header';
 
 class Home extends Component {
 
+  renderStatistic(statistic) {
+    return (
+      <Statistic>
+        <Statistic.Value>
+          <Link to={statistic.path}>
+            <Icon name={statistic.icon.name} color={statistic.icon.color} />
+            {statistic.value}
+          </Link>
+        </Statistic.Value>
+        <Statistic.Label>{statistic.description}</Statistic.Label>
+      </Statistic>
+    );
+  }
+
   render() {
     return (
       <Grid stackable>
@@ -41,20 +55,6 @@ class Home extends Component {
           </Grid.Column>
         </Grid.Row>
       </Grid>
-    );
-  }
-
-  renderStatistic(statistic) {
-    return (
-      <Statistic>
-        <Statistic.Value>
-          <Link to={statistic.path}>
-            <Icon name={statistic.icon.name} color={statistic.icon.color} />
-            {statistic.value}
-          </Link>
-        </Statistic.Value>
-        <Statistic.Label>{statistic.description}</Statistic.Label>
-      </Statistic>
     );
   }
 }

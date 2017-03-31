@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { Grid, Form, Segment, Divider } from 'semantic-ui-react';
 import ScreenHeader from '../shared/screen-header';
 

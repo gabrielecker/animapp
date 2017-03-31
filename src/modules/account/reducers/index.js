@@ -1,6 +1,7 @@
+import Immutable from 'immutable';
 import * as types from './../actions/types';
 import * as home from './reducers';
-import Immutable from 'immutable';
+
 
 const initialstate = Immutable.fromJS({
   classesList: [],

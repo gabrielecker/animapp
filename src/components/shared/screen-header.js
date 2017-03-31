@@ -13,3 +13,8 @@ export default class ScreenHeader extends Component {
     );
   }
 }
+
+ScreenHeader.propTypes = {
+  children: React.PropTypes.string.isRequired,
+};
+

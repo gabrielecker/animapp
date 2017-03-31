@@ -8,4 +8,9 @@ class ShelterContainer extends Component {
   }
 }
 
+
+ShelterContainer.propTypes = {
+  children: React.PropTypes.object,
+};
+
 export default ShelterContainer;

@@ -8,4 +8,8 @@ class AccountContainer extends Component {
   }
 }
 
+AccountContainer.propTypes = {
+  children: React.PropTypes.object,
+};
+
 export default AccountContainer;
