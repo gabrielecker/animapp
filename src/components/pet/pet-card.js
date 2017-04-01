@@ -17,14 +17,15 @@ class PetCard extends Component {
 
   render() {
     const { pet } = this.props;
+;
     return (
       <Item>
-        <Item.Image src={pet.picture} size="small" />
+        <Item.Image src={pet.pictures[0]} size="small" />
 
         <Item.Content>
           <Item.Header as="a">{pet.name}</Item.Header>
           <Item.Description>
-            {pet.description}
+            {pet.information}
           </Item.Description>
           <Item.Extra>
             <Label icon={pet.sex === 'm' ? 'man' : 'woman'} content={pet.sex === 'm' ? 'Macho' : 'Fêmea'} />
@@ -34,7 +35,7 @@ class PetCard extends Component {
             <Button color="red" floated="right">
               <Icon name="heart" />Adotar
             </Button>
-            <Button color="green" floated="right">
+            <Button color="green" floated="right" disabled>
               <Icon name="money" />Doar
             </Button>
           </Item.Extra>
@@ -47,12 +48,12 @@ class PetCard extends Component {
 PetCard.propTypes = {
   pet: React.PropTypes.shape({
     name: React.PropTypes.string.isRequired,
-    picture: React.PropTypes.string.isRequired,
-    description: React.PropTypes.string.isRequired,
+    pictures: React.PropTypes.array.isRequired,
     sex: React.PropTypes.string.isRequired,
-    castrated: React.PropTypes.boolean,
-    dewormed: React.PropTypes.boolean,
-    size: React.PropTypes.string,
+    castrated: React.PropTypes.bool.isRequired,
+    dewormed: React.PropTypes.bool.isRequired,
+    size: React.PropTypes.string.isRequired,
+    information: React.PropTypes.string.isRequired,
   }),
 };
 

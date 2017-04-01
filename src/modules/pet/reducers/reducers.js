@@ -1,5 +1,10 @@
-export function fetchClasses(state, action) {
+export function setLoading(state, action) {
   return state
-    .set('classesList', action.payload)
-    .set('isClassesLoading', false);
+    .set('isLoading', action.payload);
+}
+
+export function fetchPets(state, action) {
+  return state
+    .set('petsListPagination', action.payload.data.pagination)
+    .set('petsList', action.payload.data.pets);
 }

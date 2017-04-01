@@ -7,31 +7,17 @@ import PetSearch from './pet-search';
 
 class PetList extends Component {
 
+  componentWillMount() {
+    const { fetchPets, setLoading } = this.props;
+    setLoading(true);
+    fetchPets().then(() => {
+      setLoading(false);
+    });
+  }
+
   render() {
-    const pets = [
-      {
-        id: '1',
-        name: 'Bob',
-        type: 'd',
-        size: 'm',
-        sex: 'm',
-        castrated: true,
-        dewormed: true,
-        picture: ['https://static.pexels.com/photos/7720/night-animal-dog-pet.jpg'],
-        description: 'Extremamente sociável, gosta de correr, latir e roer coisas.',
-      },
-      {
-        id: '2',
-        name: 'Aisha',
-        type: 'c',
-        size: 's',
-        sex: 'f',
-        castrated: true,
-        dewormed: false,
-        picture: ['https://static.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg'],
-        description: 'Gata quieta, come pouco e não solta pelos. Não se da bem com outros animais.',
-      },
-    ];
+    const { petsList, petsListPagination, fetchPets, setLoading } = this.props;
+
     return (
       <Grid>
         <Grid.Row>
@@ -45,18 +31,27 @@ class PetList extends Component {
         <Grid.Row>
           <Grid.Column>
             <Item.Group>
-              {pets.map(pet => <PetCard pet={pet} />)}
+              {petsList.map(pet => <PetCard pet={pet} />)}
             </Item.Group>
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
           <Grid.Column>
-            <PetPagination />
+            <PetPagination
+              petsListPagination={petsListPagination}
+              fetchPets={fetchPets}
+              setLoading={setLoading}
+            />
           </Grid.Column>
         </Grid.Row>
       </Grid>
     );
   }
+}
+
+PetList.propTypes = {
+  fetchPets: React.PropTypes.function,
+  setLoading: React.PropTypes.function
 }
 
 export default PetList;

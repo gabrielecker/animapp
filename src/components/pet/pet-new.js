@@ -1,9 +1,53 @@
 import React, { Component } from 'react';
 import { Grid, Form, Divider, Checkbox, Image, Segment } from 'semantic-ui-react';
 import ScreenHeader from '../shared/screen-header';
-import ImageUploader from '../shared/image-uploader';
 
 export default class PetNew extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      type: '',
+      size: '',
+      castrated: false,
+      dewormed: false,
+      picture: '',
+      information: '',
+    };
+  }
+
+  handleChange(field, event, { value }) {
+    const updatedValue = {};
+
+    switch (field) {
+      case 'castrated':
+      case 'dewormed':
+        updatedValue[field] = !this.state[field];
+        break;
+      default:
+        updatedValue[field] = value || event.target.value;
+    }
+
+    this.setState(updatedValue);
+  }
+
+  handleSubmit(event) {
+    const { registerPet } = this.props;
+    const { name, type, size, castrated, dewormed, picture, information } = this.state;
+
+    event.preventDefault();
+
+    registerPet({
+      name,
+      type,
+      size,
+      castrated,
+      dewormed,
+      pictures: [picture],
+      information,
+    });
+  }
 
   render() {
     return (
@@ -24,26 +68,81 @@ export default class PetNew extends Component {
           <Grid.Column>
             <Form>
               <Form.Group>
-                <Form.Input label="Nome" width={16} />
+                <Form.Input
+                  label="Nome"
+                  value={this.state.name}
+                  onChange={(event, value) => this.handleChange('name', event, value || {})}
+                  width={16}
+                />
               </Form.Group>
               <Form.Group >
-                <Form.Select label="Tipo" options={[{ key: 'd', text: 'Cão', value: 'c' }, { key: 'c', text: 'Gato', value: 'c' }]} width={4} />
-                <Form.Select label="Porte" options={[{ key: 'b', text: 'Grande', value: 'b' }, { key: 'm', text: 'Médio', value: 'm' }, { key: 'p', text: 'Pequeno', value: 'p' }]} width={6} />
-                <Form.Select label="Sexo" options={[{ key: 'm', text: 'Macho', value: 'm' }, { key: 'f', text: 'Fêmea', value: 'f' }]} width={6} />
+                <Form.Select
+                  label="Tipo"
+                  value={this.state.type}
+                  onChange={(event, value) => this.handleChange('type', event, value || {})}
+                  options={[{ key: 'd', text: 'Cão', value: 'd' }, { key: 'c', text: 'Gato', value: 'c' }]}
+                  width={4}
+                />
+                <Form.Select
+                  label="Porte"
+                  value={this.state.size}
+                  onChange={(event, value) => this.handleChange('size', event, value || {})}
+                  options={[{ key: 'b', text: 'Grande', value: 'b' }, { key: 'm', text: 'Médio', value: 'm' }, { key: 'p', text: 'Pequeno', value: 'p' }]}
+                  width={6}
+                />
+                <Form.Select
+                  label="Sexo"
+                  value={this.state.sex}
+                  onChange={(event, value) => this.handleChange('sex', event, value || {})}
+                  options={[{ key: 'm', text: 'Macho', value: 'm' }, { key: 'f', text: 'Fêmea', value: 'f' }]}
+                  width={6}
+                />
               </Form.Group>
               <Form.Group>
-                <Form.Field control={Checkbox} label={<label>Castrado</label>} />
-                <Form.Field control={Checkbox} label={<label>Vermifugado</label>} />
+                <Form.Field
+                  value={this.state.castrated}
+                  onChange={(event, value) => this.handleChange('castrated', event, value || {})}
+                  control={Checkbox}
+                  label={<label>Castrado</label>}
+                />
+                <Form.Field
+                  value={this.state.dewormed}
+                  onChange={(event, value) => this.handleChange('dewormed', event, value || {})}
+                  control={Checkbox}
+                  label={<label>Vermifugado</label>}
+                />
               </Form.Group>
               <Form.Group>
-                <ImageUploader />
-                <Image.Group size="tiny" />
+                <Form.Input
+                  value={this.state.picture}
+                  onChange={(event, value) => this.handleChange('picture', event, value || {})}
+                  label="URL da foto"
+                  width={16}
+                />
               </Form.Group>
               <Form.Group>
-                <Form.TextArea label="Complemento" placeholder="Informações complementares do pet..." width={16} />
+                <Image.Group size="large">
+                  <Image src={this.state.picture} />
+                </Image.Group>
               </Form.Group>
               <Form.Group>
-                <Form.Button positive fluid width={16}>Cadastrar</Form.Button>
+                <Form.TextArea
+                  value={this.state.information}
+                  onChange={(event, value) => this.handleChange('information', event, value || {})}
+                  label="Complemento"
+                  placeholder="Informações complementares do pet..."
+                  width={16}
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Button
+                  onClick={event => this.handleSubmit(event)}
+                  positive
+                  fluid
+                  width={16}
+                >
+                  Cadastrar
+                </Form.Button>
               </Form.Group>
             </Form>
           </Grid.Column>
@@ -52,3 +151,8 @@ export default class PetNew extends Component {
     );
   }
 }
+
+PetNew.propTypes = {
+  registerPet: React.PropTypes.function,
+};
+

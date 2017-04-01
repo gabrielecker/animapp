@@ -1,16 +1,18 @@
 import Immutable from 'immutable';
 import * as types from './../actions/types';
-import * as home from './reducers';
+import * as pet from './reducers';
 
 const initialstate = Immutable.fromJS({
-  classesList: [],
-  isClassesLoading: false,
+  petsList: [],
+  petsListPagionation: [1],
 });
 
 export default function reducer(state = initialstate, action = {}) {
   switch (action.type) {
-    case types.FETCH_CLASSES:
-      return home.fetchClasses(state, action);
+    case types.SET_LOADING:
+      return pet.setLoading(state, action);
+    case types.FETCH_PETS:
+      return pet.fetchPets(state, action);
     default:
       return state;
   }
