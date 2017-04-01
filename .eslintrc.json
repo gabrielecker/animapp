@@ -1,6 +1,7 @@
 {
   "extends": "airbnb",
   "rules": {
+    "no_underscore_dangle": 0,
     "no-unexpected-multiline": 2,
     "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
     "react/require-default-props": 0,

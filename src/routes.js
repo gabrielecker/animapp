@@ -11,6 +11,7 @@ import Home from './modules/home/components/home';
 import PetContainer from './modules/pet/components/pet-container';
 import PetList from './components/pet/pet-list';
 import PetNew from './components/pet/pet-new';
+import PetInfo from './components/pet/pet-info';
 
 // SHELTER
 import ShelterList from './components/shelter/shelter-list';
@@ -30,6 +31,7 @@ export default(
     <Route path="pets" component={PetContainer}>
       <IndexRoute component={PetList} />
       <Route path="new" component={PetNew} />
+      <Route path=":id" component={PetInfo} />
     </Route>
 
 

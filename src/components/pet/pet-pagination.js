@@ -9,7 +9,7 @@ class PetPagination extends Component {
       setLoading(true);
       fetchPets({
         skip: (page - 1) * 5,
-      }).then(()=>{
+      }).then(() => {
         setLoading(false);
       });
     };

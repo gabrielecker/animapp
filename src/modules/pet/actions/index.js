@@ -29,3 +29,12 @@ export function registerPet(params) {
   };
 }
 
+export function fetchCurrentPet(id) {
+  const request = axios.get(`${constants.SERVER_URL}/pets/${id}`);
+
+  return {
+    type: types.FETCH_CURRENT_PET,
+    payload: request,
+  };
+}
+

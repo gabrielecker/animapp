@@ -51,7 +51,7 @@ class PetList extends Component {
 
 PetList.propTypes = {
   fetchPets: React.PropTypes.function,
-  setLoading: React.PropTypes.function
-}
+  setLoading: React.PropTypes.function,
+};
 
 export default PetList;

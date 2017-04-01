@@ -1,23 +1,12 @@
 import React, { Component } from 'react';
 import { Item, Label, Button, Icon } from 'semantic-ui-react';
-
+import { Link } from 'react-router';
+import PetSizeTag from './pet-size-tag';
 class PetCard extends Component {
-  renderPetSizeTag() {
-    switch (this.props.pet.size) {
-      case 's':
-        return <Label>Porte pequeno</Label>;
-      case 'm':
-        return <Label>Porte médio</Label>;
-      case 'b':
-        return <Label>Porte grande</Label>;
-      default:
-        return <Label>Indefinido</Label>;
-    }
-  }
 
   render() {
     const { pet } = this.props;
-;
+
     return (
       <Item>
         <Item.Image src={pet.pictures[0]} size="small" />
@@ -31,13 +20,17 @@ class PetCard extends Component {
             <Label icon={pet.sex === 'm' ? 'man' : 'woman'} content={pet.sex === 'm' ? 'Macho' : 'Fêmea'} />
             {pet.castrated ? <Label>Castrado</Label> : ''}
             {pet.dewormed ? <Label>Vermifugado</Label> : ''}
-            {this.renderPetSizeTag(pet.size)}
-            <Button color="red" floated="right">
+            <PetSizeTag size={pet.size} />
+            <Link to={`/pets/${pet._id}`}><Button color="red" floated="right">
               <Icon name="heart" />Adotar
             </Button>
-            <Button color="green" floated="right" disabled>
-              <Icon name="money" />Doar
-            </Button>
+            </Link>
+
+            <Link>
+              <Button color="green" floated="right" disabled>
+                <Icon name="money" />Doar
+              </Button>
+            </Link>
           </Item.Extra>
         </Item.Content>
       </Item>

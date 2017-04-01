@@ -8,3 +8,8 @@ export function fetchPets(state, action) {
     .set('petsListPagination', action.payload.data.pagination)
     .set('petsList', action.payload.data.pets);
 }
+
+export function fetchCurrentPet(state, action) {
+  return state
+    .set('currentPet', action.payload.data);
+}
