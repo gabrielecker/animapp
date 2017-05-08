@@ -1,6 +1,7 @@
 # Animapp
 [![TravisCI](https://api.travis-ci.org/animapp-dev/animapp.svg?branch=dev)](https://travis-ci.org/animapp-dev/)
 [![CodeFactor](https://www.codefactor.io/repository/github/animapp-dev/animapp/badge)](https://www.codefactor.io/repository/github/animapp-dev/animapp)
+[![Dependency Status](https://gemnasium.com/badges/github.com/animapp-dev/animapp.svg)](https://gemnasium.com/github.com/animapp-dev/animapp)
 ## O que é o Animapp?
 
 Animapp é uma plataforma online e open-source criada em favor da causa animal. Através desta plataforma você poderá adotar um pet, se cadastrar como lar temporário ou fazer doações para animais em necessidade. Se você encontrou um pet abandonado e precisa de ajuda, você também pode cadastrá-lo na plataforma.
