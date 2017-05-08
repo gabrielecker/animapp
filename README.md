@@ -1,4 +1,5 @@
 # Animapp
+[![TravisCI](https://api.travis-ci.org/animapp-dev/animapp.svg?branch=dev)](https://travis-ci.org/animapp-dev/)
 [![CodeFactor](https://www.codefactor.io/repository/github/animapp-dev/animapp/badge)](https://www.codefactor.io/repository/github/animapp-dev/animapp)
 ## O que é o Animapp?
 
