@@ -10,7 +10,7 @@ const store = configureStore({});
 
 class Root extends Component {
 
-  render() =>{ //test travis
+  render() {
     return (
       <Provider store={store}>
         <Router history={browserHistory} routes={routes} />
