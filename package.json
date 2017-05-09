@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": "",
   "scripts": {
-	"build": "webpack --progress -p"
+	"build": "webpack --progress -p",
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "test": "mocha -R min",
     "test:watch": "npm run test -- --watch",
