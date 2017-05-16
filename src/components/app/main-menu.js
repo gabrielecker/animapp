@@ -6,76 +6,89 @@ import {Link} from 'react-router';
 
 class MainMenu extends Component {
 
-    static contextTypes = {
-        router: PropTypes.object
-    }
+  static contextTypes = {
+    router: PropTypes.object
+  }
 
-    render() {
-      const menuItems = [
-        {path: "/", description: "Início"},
-        {path: "/pets", description: "Adotar"},
-        {description: "Cadastrar", menuItems: [
-          {path: "/pets/new", description:"Pet"},
-          {path: "/shelters/new", description: "Lar temporário", disabled: true}
-        ]},
-        {path: "/account/login", description: "Login", posRight: true},
-        {path: "/account/signup", description: "Registro", posRight: true}
-      ];
+  render() {
+    const {accountInfo, logoutAccount} = this.props;
 
-        return (
-            <Menu stackable>
-                <Menu.Item header><Icon name='paw'/>Animapp</Menu.Item>
-                {menuItems.filter(menuItem => !menuItem.posRight).map(menuItem => this.renderItem(menuItem.menuItems ? "dropDown" : "menuItem", menuItem))}
+    return (
+      <Menu stackable>
+        <Menu.Item header><Icon name='paw'/>Animapp</Menu.Item>
+        <Link to='/'>
+          <Menu.Item link>
+            Início
+          </Menu.Item>
+        </Link>
 
-                <Menu.Menu stackable position='right'>
-                {menuItems.filter(menuItem => menuItem.posRight).map(menuItem => this.renderItem(menuItem.menuItems ? "dropDown" : "menuItem", menuItem))}
-                </Menu.Menu>
-            </Menu>
-        )
-    }
+        <Link to='/pets'>
+          <Menu.Item  link>
+            Adotar
+          </Menu.Item>
+        </Link>
 
-    renderItem(type, config) {
-      switch(type) {
-        case "menuItem": return this.renderMenuItem(config);
-        case "dropDown": return this.renderDropdown(config);
-      }
-    }
-
-    renderMenuItem(config) {
-        return (
-            <Link to={config.path}>
-                <Menu.Item disabled={config.disabled} link>
-                    {config.description}
-                </Menu.Item>
+        <Dropdown item text='Cadastrar'>
+          <Dropdown.Menu>
+            <Link to='/pets/new'>
+              <Dropdown.Item link>Pet</Dropdown.Item>
             </Link>
-        )
-    }
+            <Link to='/shelters/new'>
+              <Dropdown.Item link >Lar temporário</Dropdown.Item>
+            </Link>
+          </Dropdown.Menu>
+        </Dropdown>
 
-    renderDropdown(config) {
-        return (
-            <Dropdown item text={config.description}>
-                <Dropdown.Menu>
-                    {config.menuItems.map(menuItem => (
-                            <Link to={menuItem.path}>
-                                <Dropdown.Item link disabled={menuItem.disabled}>{menuItem.description}</Dropdown.Item>
-                            </Link>
-                      )
-                    )}
-                </Dropdown.Menu>
-            </Dropdown>
-        )
-    }
+        <Menu.Menu stackable position='right'>
+          {!accountInfo.name ? this.renderLogin() : ''}
+          {!accountInfo.name ? this.renderSignUp() : ''}
+          {accountInfo.name ? this.renderAccountInfo() : ''}
+          {accountInfo.name ? this.renderLogout() : ''}
+        </Menu.Menu>
+      </Menu>
+    )
+  }
+
+
+  renderLogin(){
+    return(
+      <Link to='/account/login'>
+        <Menu.Item  link>
+          Login
+        </Menu.Item>
+      </Link>
+    )
+  }
+
+  renderSignUp(){
+    <Link to='/account/signup'>
+      <Menu.Item  link>
+        Registro
+      </Menu.Item>
+    </Link>
+  }
+
+  renderAccountInfo(){
+    const {accountInfo} = this.props;
+    return(
+      <Link to='/account/me'>
+        <Menu.Item link>
+          {accountInfo.name}
+        </Menu.Item>
+      </Link>
+    )
+  }
+
+  renderLogout(){
+    debugger;
+    const {logoutAccount} = this.props;
+    return(
+      <Menu.Item link onClick={logoutAccount}>
+        Logout
+      </Menu.Item>
+    )
+  }
 
 }
 
-function mapStateToProps(state){
-    return{
-
-    }
-}
-
-function mapDispatchToProps(dispatch){
-    return bindActionCreators({}, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainMenu);
+export default MainMenu;

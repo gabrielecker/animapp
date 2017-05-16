@@ -7,6 +7,7 @@ import {
   registerPet,
   setLoading,
   fetchCurrentPet,
+  updateSearchFilters,
 } from '../actions/index';
 
 class PetContainer extends Component {
@@ -27,10 +28,11 @@ class PetContainer extends Component {
 
 function mapStateToProps(state) {
   return {
-    isLoading: state.pet.get('isLoading') || false,
-    petsList: state.pet.get('petsList') || [],
-    petsListPagination: state.pet.get('petsListPagination') || [1],
-    currentPet: state.pet.get('currentPet'),
+    isLoading: state.pet.isLoading || false,
+    petsList: state.pet.petsList || [],
+    petsListPagination: state.pet.petsListPagination || [1],
+    currentPet: state.pet.currentPet,
+    searchFilters: state.pet.searchFilters,
   };
 }
 
@@ -40,12 +42,12 @@ function mapDispatchToProps(dispatch) {
     registerPet,
     setLoading,
     fetchCurrentPet,
+    updateSearchFilters,
   }, dispatch);
 }
 
 PetContainer.propTypes = {
   children: React.PropTypes.object,
-  isLoading: React.PropTypes.bool,
 };
 
 

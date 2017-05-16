@@ -1,8 +1,15 @@
-import React, { Component } from 'react';
-import { Grid, Form, Divider, Checkbox, Image, Segment } from 'semantic-ui-react';
+import React, { Component, PropTypes } from 'react';
+import { Grid, Form, Divider, Checkbox, Image, Segment, Message } from 'semantic-ui-react';
 import ScreenHeader from '../shared/screen-header';
+import {
+  validatePet
+} from '../../utils/pet-validator-util';
 
 export default class PetNew extends Component {
+
+  static contextTypes = {
+    router: PropTypes.object
+  }
 
   constructor(props) {
     super(props);
@@ -10,6 +17,7 @@ export default class PetNew extends Component {
       name: '',
       type: '',
       size: '',
+      sex: '',
       castrated: false,
       dewormed: false,
       picture: '',
@@ -33,23 +41,52 @@ export default class PetNew extends Component {
   }
 
   handleSubmit(event) {
-    const { registerPet } = this.props;
-    const { name, type, size, castrated, dewormed, picture, information } = this.state;
+    const { registerPet, setLoading } = this.props;
+    const { name, type, size, sex, castrated, dewormed, picture, information } = this.state;
 
     event.preventDefault();
+    const errors = validatePet(this.state);
+    if(errors.name || errors.type || errors.size || errors.sex){
+      this.setState({errors});
+    }else {
 
-    registerPet({
-      name,
-      type,
-      size,
-      castrated,
-      dewormed,
-      pictures: [picture],
-      information,
-    });
+
+      setLoading(true);
+
+      registerPet({
+        name,
+        type,
+        size,
+        sex,
+        castrated,
+        dewormed,
+        pictures: [picture],
+        information,
+      }).then(res => {
+        setLoading(false);
+        this.context.router.push(`/pets/${res.payload.data.id}`);
+      });
+    }
+  }
+
+  errorsMessage(){
+    const {errors} = this.state;
+    const errorsList = [];
+    if(errors){
+      for(let field in errors){
+        if(errors[field]) errorsList.push(errors[field]);
+      }
+    }
+
+    if(errorsList.length){
+      return <Message error header="Preencha os campos corretamente!" list={errorsList} />
+    }else{
+      return '';
+    }
   }
 
   render() {
+    const { errors } = this.state;
     return (
       <Grid stackable>
         <Grid.Row>
@@ -64,6 +101,11 @@ export default class PetNew extends Component {
           </Grid.Column>
         </Grid.Row>
         <Grid.Row><Divider horizontal>Formulário</Divider></Grid.Row>
+        <Grid.Row>
+          <Grid.Column width={16}>
+            {this.errorsMessage()}
+          </Grid.Column>
+        </Grid.Row>
         <Grid.Row>
           <Grid.Column>
             <Form>
@@ -87,7 +129,7 @@ export default class PetNew extends Component {
                   label="Porte"
                   value={this.state.size}
                   onChange={(event, value) => this.handleChange('size', event, value || {})}
-                  options={[{ key: 'b', text: 'Grande', value: 'b' }, { key: 'm', text: 'Médio', value: 'm' }, { key: 'p', text: 'Pequeno', value: 'p' }]}
+                  options={[{ key: 'b', text: 'Grande', value: 'b' }, { key: 'm', text: 'Médio', value: 'm' }, { key: 's', text: 'Pequeno', value: 's' }]}
                   width={6}
                 />
                 <Form.Select
@@ -154,5 +196,6 @@ export default class PetNew extends Component {
 
 PetNew.propTypes = {
   registerPet: React.PropTypes.function,
+  setLoading: React.PropTypes.function,
 };
 

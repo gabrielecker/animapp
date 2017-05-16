@@ -38,3 +38,10 @@ export function fetchCurrentPet(id) {
   };
 }
 
+export function updateSearchFilters(params) {
+  return {
+    type: types.UPDATE_SEARCH_FILTERS,
+    payload: params,
+  };
+}
+
