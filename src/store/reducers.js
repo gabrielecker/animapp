@@ -4,5 +4,5 @@ import account from './../modules/account/reducers/index';
 
 export default combineReducers({
   pet,
-  account
+  account,
 });
