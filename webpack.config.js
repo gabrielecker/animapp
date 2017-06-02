@@ -1,5 +1,4 @@
 var path = require('path');
-var webpack = require('webpack');
 
 module.exports = {
   entry: [
@@ -13,19 +12,19 @@ module.exports = {
   module: {
     loaders: [
 	{
-	  test: /\.js$/,
+      test: /\.js$/,
       exclude: /node_modules/,
-      loader: 'babel',
+      loader: 'babel-loader',
       query: {
         presets: ['react', 'es2015', 'stage-1']
       }
     },{
-		test: /\.less$/, loader: 'style!css!less'
+		test: /\.less$/, loader: 'style-loader!css-loader!less-loader'
 	}
 	]
   },
   resolve: {
-	root: [path.join(__dirname, "./src")]
+	modules: [path.join(__dirname, "./node_modules"), path.join(__dirname, "./src")]
   },
   devtool: 'source-map',
   devServer: {

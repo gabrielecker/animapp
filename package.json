@@ -5,8 +5,9 @@
   "main": "index.js",
   "repository": "",
   "scripts": {
+	"build": "webpack --progress -p",
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
+    "test": "mocha -R min",
     "test:watch": "npm run test -- --watch",
     "linter": "eslint src",
     "linter:fix": "eslint src --fix"
@@ -15,30 +16,30 @@
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.2.1",
-    "babel-loader": "^6.2.0",
+    "babel-loader": "^7.0.0",
     "babel-preset-es2015": "^6.1.18",
     "babel-preset-react": "^6.1.18",
-    "css-loader": "^0.26.1",
-    "less-loader": "^2.2.3",
-    "style-loader": "^0.13.1",
-    "webpack": "^1.12.9",
-    "webpack-dev-server": "^1.14.0"
+    "css-loader": "^0.28.1",
+    "less-loader": "^4.0.3",
+    "style-loader": "^0.17.0",
+    "webpack": "^2.5.1",
+    "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
-    "axios": "^0.13.1",
+    "axios": "^0.16.1",
     "babel-preset-stage-1": "^6.1.18",
     "immutable": "^3.8.1",
     "less": "^2.7.2",
-    "lodash": "^3.10.1",
+    "lodash": "^4.17.4",
     "moment": "^2.17.1",
-    "react": "^0.14.3",
-    "react-dom": "^0.14.3",
-    "react-redux": "^4.0.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.4",
     "react-router": "^2.8.1",
     "redux": "^3.0.4",
-    "redux-form": "^4.1.3",
-    "redux-logger": "^2.8.1",
+    "redux-logger": "^3.0.1",
     "redux-promise": "^0.5.3",
-    "semantic-ui-react": "^0.66.0"
+    "semantic-ui-react": "^0.68.3",
+	"mocha": "^3.2.0"
   }
 }
