@@ -1,15 +1,21 @@
 export function setLoading(state, action) {
-  return state
-    .set('isLoading', action.payload);
+  return { ...state, isLoading: action.payload };
 }
 
 export function fetchPets(state, action) {
-  return state
-    .set('petsListPagination', action.payload.data.pagination)
-    .set('petsList', action.payload.data.pets);
+  const { pagination, pets } = action.payload.data;
+
+  return { ...state,
+    petsList: pets,
+    petsListPagination: pagination,
+  };
 }
 
 export function fetchCurrentPet(state, action) {
-  return state
-    .set('currentPet', action.payload.data);
+  return { ...state, currentPet: action.payload.data };
+}
+
+export function updateSearchFilters(state, action) {
+  const searchFilters = Object.assign({}, state.searchFilters, action.payload);
+  return { ...state, searchFilters };
 }

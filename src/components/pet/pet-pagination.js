@@ -4,10 +4,11 @@ import { Menu } from 'semantic-ui-react';
 class PetPagination extends Component {
 
   renderMenuItem(page) {
-    const { fetchPets, setLoading } = this.props;
+    const { fetchPets, setLoading, searchFilters } = this.props;
     const fetchPage = () => {
       setLoading(true);
       fetchPets({
+        ...searchFilters,
         skip: (page - 1) * 5,
       }).then(() => {
         setLoading(false);
@@ -22,7 +23,7 @@ class PetPagination extends Component {
     const { petsListPagination } = this.props;
     return (
       <Menu pagination>
-        {petsListPagination ? petsListPagination.map(this.renderMenuItem.bind(this)) : '' }
+        {petsListPagination.map(this.renderMenuItem.bind(this))}
       </Menu>
     );
   }

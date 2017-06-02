@@ -16,7 +16,7 @@ class PetList extends Component {
   }
 
   render() {
-    const { petsList, petsListPagination, fetchPets, setLoading } = this.props;
+    const { petsList, petsListPagination, fetchPets, setLoading, updateSearchFilters, searchFilters } = this.props;
 
     return (
       <Grid>
@@ -25,7 +25,12 @@ class PetList extends Component {
         </Grid.Row>
         <Grid.Row>
           <Grid.Column width={16}>
-            <PetSearch />
+            <PetSearch
+              updateSearchFilters={updateSearchFilters}
+              searchFilters={searchFilters}
+              fetchPets={fetchPets}
+              setLoading={setLoading}
+            />
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
@@ -38,6 +43,7 @@ class PetList extends Component {
         <Grid.Row>
           <Grid.Column>
             <PetPagination
+              searchFilters={searchFilters}
               petsListPagination={petsListPagination}
               fetchPets={fetchPets}
               setLoading={setLoading}
@@ -52,6 +58,8 @@ class PetList extends Component {
 PetList.propTypes = {
   fetchPets: React.PropTypes.function,
   setLoading: React.PropTypes.function,
+  updateSearchFilters: React.PropTypes.function,
+  searchFilters: React.PropTypes.object,
 };
 
 export default PetList;

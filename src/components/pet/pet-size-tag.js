@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Label } from 'semantic-ui-react';
 
 class PetSizeTag extends Component {
+
   render() {
     const { size } = this.props;
     switch (size) {

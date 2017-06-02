@@ -21,7 +21,12 @@ export function fetchPets(params = {}) {
 }
 
 export function registerPet(params) {
-  const request = axios.post(`${constants.SERVER_URL}/pets`, params);
+  const request = axios.post(`${constants.SERVER_URL}/pets`, params, {
+    headers: {
+      authorization: sessionStorage.getItem('token'),
+    },
+  },
+  );
 
   return {
     type: types.REGISTER_PET,
@@ -35,6 +40,13 @@ export function fetchCurrentPet(id) {
   return {
     type: types.FETCH_CURRENT_PET,
     payload: request,
+  };
+}
+
+export function updateSearchFilters(params) {
+  return {
+    type: types.UPDATE_SEARCH_FILTERS,
+    payload: params,
   };
 }
 

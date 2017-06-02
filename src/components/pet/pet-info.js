@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Image, Label } from 'semantic-ui-react';
-import PetSizeTag from './pet-size-tag'
+import PetSizeTag from './pet-size-tag';
 import ScreenHeader from '../shared/screen-header';
 
 class PetInfo extends Component {
@@ -20,16 +20,18 @@ class PetInfo extends Component {
           <ScreenHeader>Informações do Pet - {currentPet.name}</ScreenHeader>
         </Grid.Row>
         <Grid.Row>
-          <PetSizeTag size={currentPet.size} />
-          {currentPet.castrated ? <Label>Castrado</Label> : ''}
-          {currentPet.dewormed ? <Label>Vermifugado</Label> : ''}
+          <Grid.Column>
+            <PetSizeTag size={currentPet.size} />
+            {currentPet.castrated ? <Label>Castrado</Label> : ''}
+            {currentPet.dewormed ? <Label>Vermifugado</Label> : ''}
+          </Grid.Column>
         </Grid.Row>
         <Grid.Row>
           <Grid.Column width={8}>
             <Image src={currentPet.pictures[0]} />
           </Grid.Column>
           <Grid.Column width={8}>
-            {currentPet.description || 'Nenhuma informação disponível!'}
+            {currentPet.information || 'Nenhuma informação disponível!'}
           </Grid.Column>
         </Grid.Row>
       </Grid>

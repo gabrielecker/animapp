@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Item, Label, Button, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router';
 import PetSizeTag from './pet-size-tag';
+
 class PetCard extends Component {
 
   render() {
