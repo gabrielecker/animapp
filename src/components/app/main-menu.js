@@ -80,7 +80,6 @@ class MainMenu extends Component {
   }
 
   renderLogout(){
-    debugger;
     const {logoutAccount} = this.props;
     return(
       <Menu.Item link onClick={logoutAccount}>
