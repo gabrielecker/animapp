@@ -117,7 +117,7 @@ class AccountSignUp extends Component {
                   fluid
                   width={16}
                 >
-                  Cadastrar
+                  Registrar
                 </Form.Button>
               </Form.Group>
             </Form>
