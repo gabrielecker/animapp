@@ -14,7 +14,6 @@ class PetContainer extends Component {
 
   render() {
     const { isLoading } = this.props;
-
     return (
       <div>
         <Dimmer active={isLoading} inverted>
