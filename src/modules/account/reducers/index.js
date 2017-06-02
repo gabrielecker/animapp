@@ -1,7 +1,7 @@
 import * as types from './../actions/types';
 import * as account from './reducers';
 
-
+debugger;
 const initialstate = {
   isLoading: false,
   accountInfo: JSON.parse(sessionStorage.getItem('accountInfo') || '{}'),

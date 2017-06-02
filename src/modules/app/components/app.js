@@ -6,7 +6,7 @@ import '../../../styles/style.less';
 import MainMenu from '../../../components/app/main-menu';
 import MainFooter from '../../../components/app/main-footer';
 import InformationModal from '../../../components/shared/information-modal';
-import {logoutAccount} from '../../account/actions/index';
+import { logoutAccount } from '../../account/actions/index';
 
 
 class App extends Component {
@@ -38,7 +38,7 @@ class App extends Component {
   }
 
   render() {
-    const {accountInfo, logoutAccount} = this.props;
+    const { accountInfo, logoutAccount } = this.props;
 
     return (
       <div>

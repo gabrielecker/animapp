@@ -40,7 +40,9 @@ class AccountLogin extends Component{
       password,
     }).then(res=>{
       setLoading(false);
-      console.log(res);
+      if(res.error){
+        alert('Falha no login!');
+      }
     });
   }
 

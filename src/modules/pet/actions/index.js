@@ -21,7 +21,12 @@ export function fetchPets(params = {}) {
 }
 
 export function registerPet(params) {
-  const request = axios.post(`${constants.SERVER_URL}/pets`, params);
+  const request = axios.post(`${constants.SERVER_URL}/pets`, params, {
+    headers: {
+      authorization: sessionStorage.getItem('token'),
+    },
+  },
+  );
 
   return {
     type: types.REGISTER_PET,

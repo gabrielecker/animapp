@@ -17,15 +17,7 @@ export function loginAccount(params) {
   };
 }
 
-export function logoutAccount(params) {
-  /*
-  const accountInfo = JSON.parse(sessionStorage.getItem('accountInfo') || '{}');
-  const request = axios.get(`${constants.SERVER_URL}/accounts/logout`, {
-    params: { Authorization: `Bearer ${accountInfo.token}` },
-  });
-
-  */
-
+export function logoutAccount() {
   sessionStorage.setItem('accountInfo', JSON.stringify({}));
   return {
     type: types.LOGOUT_ACCOUNT,
