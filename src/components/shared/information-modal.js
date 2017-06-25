@@ -6,7 +6,7 @@ class InformationModal extends Component {
     const { open, confirmButton, informationButton, cancelButton, information } = this.props;
     return (
       <Modal open={open}>
-        <Modal.Header><Icon name="news" /> Informações</Modal.Header>
+        <Modal.Header><Icon name="info" /> Informações</Modal.Header>
         <Modal.Content>
           <Modal.Description>
             {information}

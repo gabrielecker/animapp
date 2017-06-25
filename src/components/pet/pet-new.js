@@ -85,7 +85,7 @@ export default class PetNew extends Component {
     }
   }
 
-  render() {
+  renderPetForm(){
     const { errors } = this.state;
     return (
       <Grid stackable>
@@ -191,6 +191,18 @@ export default class PetNew extends Component {
         </Grid.Row>
       </Grid>
     );
+  }
+
+  renderLoginWarning(){
+    return(
+      <h1>Você deve estar logado para cadastrar um pet!</h1>
+    )
+  }
+
+  render() {
+    const {accountInfo} = this.props;
+    debugger;
+    return accountInfo && accountInfo.token ? this.renderPetForm() : this.renderLoginWarning();
   }
 }
 

@@ -27,6 +27,7 @@ class PetContainer extends Component {
 
 function mapStateToProps(state) {
   return {
+    accountInfo: state.account.accountInfo,
     isLoading: state.pet.isLoading || false,
     petsList: state.pet.petsList || [],
     petsListPagination: state.pet.petsListPagination || [1],

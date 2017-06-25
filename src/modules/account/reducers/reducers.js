@@ -5,9 +5,12 @@ export function setLoading(state, action) {
 }
 
 export function loginAccount(state, action) {
-  if (action.payload.error) return state;
-  sessionStorage.setItem('token', action.payload.data.token);
-  sessionStorage.setItem('accountInfo', JSON.stringify(action.payload.data));
+  if (action.payload.data) {
+    sessionStorage.setItem('token', action.payload.data.token);
+    sessionStorage.setItem('accountInfo', JSON.stringify(action.payload.data));
+  }else{
+    action.payload.error = true;
+  }
   return { ...state, accountInfo: action.payload.data };
 }
 

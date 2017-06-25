@@ -31,6 +31,7 @@ class AccountLogin extends Component{
   handleSubmit(event){
     const { setLoading, loginAccount} = this.props;
     const {email, password} = this.state;
+    const {router} = this.context;
 
     event.preventDefault();
     setLoading(true);
@@ -42,6 +43,8 @@ class AccountLogin extends Component{
       setLoading(false);
       if(res.error){
         alert('Falha no login!');
+      }else{
+        router.push('/pets');
       }
     });
   }
