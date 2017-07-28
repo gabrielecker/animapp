@@ -24,7 +24,6 @@ Front-end:
 * [Redux](http://redux.js.org/)
 * [Semantic UI React](http://react.semantic-ui.com)
 * [Axios](https://github.com/mzabriskie/axios)
-* [Immutable](https://facebook.github.io/immutable-js/)
 
 Back-end:
 * [Express](http://expressjs.com)
@@ -45,5 +44,5 @@ Still not available.
 
 - [x] Consolidate front-end structure.
 - [x] Begin initial (MVP) components development (front-end).
-- [ ] Begin initial server development (back-end).
+- [x] Begin initial server development (back-end).
 - [ ] Consolidate the whole project to receive contributions from anyone in OSS community.

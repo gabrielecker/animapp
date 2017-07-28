@@ -24,7 +24,6 @@ Front-end:
 * [Redux](http://redux.js.org/)
 * [Semantic UI React](http://react.semantic-ui.com)
 * [Axios](https://github.com/mzabriskie/axios)
-* [Immutable](https://facebook.github.io/immutable-js/)
 
 Back-end:
 * [Express](http://expressjs.com)
@@ -45,5 +44,5 @@ Ainda não disponível.
 
 - [x] Estruturar front-end
 - [x] Começar o desenvolvimento do MVP de componentes (front-end).
-- [ ] Começar o desenvolvimento do MVP do servidor (back-end).
+- [x] Começar o desenvolvimento do MVP do servidor (back-end).
 - [ ] Estruturar o projeto para receber contribuições de voluntários.
