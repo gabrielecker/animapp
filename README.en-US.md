@@ -7,17 +7,17 @@
 [<img height=18 title="Português" alt="Português" src="https://lipis.github.io/flag-icon-css/flags/4x3/br.svg">](README.md)
 [<img height=18 title="Inglês" alt="Inglês" src="https://lipis.github.io/flag-icon-css/flags/4x3/um.svg">](README.en-US.md)
 
-## O que é o Animapp?
+## What is Animapp?
 
-Animapp é uma plataforma online e open-source criada em favor da causa animal. Através desta plataforma você poderá adotar um pet, se cadastrar como lar temporário ou fazer doações para animais em necessidade. Se você encontrou um pet abandonado e precisa de ajuda, você também pode cadastrá-lo na plataforma.
+Animapp is an online and open-source platform developed in favor of the animal cause. Through this platform you may adopt a pet, register yourself as temporary shelter owner or donate to animals in need. If you found a helpless pet that needs help, you may register him as well.
 
-Curta nossa página no facebook! [http://www.facebook.com/animapp.dev](http://www.facebook.com/animapp.dev)
+Like our Facebook page! [http://www.facebook.com/animapp.dev](http://www.facebook.com/animapp.dev)
 
 ![Mascote](http://i.imgur.com/HYRreHI.png)
 ![Tela1](http://i.imgur.com/GskS6NH.png)
 ![Tela2](http://i.imgur.com/XDa192l.png)
 
-## Quais tecnologias estão sendo utilizadas?
+## What is the currently technology stack?
 
 Front-end:
 * [React](https://facebook.github.io/react/)
@@ -31,19 +31,19 @@ Back-end:
 * [MongoDB](https://www.mongodb.com/)
 * [Mongoose](http://mongoosejs.com/)
 
-## Como posso testar a plataforma?
+## How can I test the platform?
 
 ### Front-end:
 
-Basta clonar o repositório e executar o comando `npm install` no diretório principal. Após a instalação de todos os pacotes execute o comando `npm start` e acesse o link `http://localhost:8080` (ou a porta que você configurar) para acessar o aplicativo.
+Simply clone the repository and run `npm install` on the project root directory. After installing the packages run `npm start` and access through `http://localhost:8080` (or any custom port in case you change the default).
 
 ### Back-end:
 
-Ainda não disponível.
+Still not available.
 
-## Atividades em desenvolvimento
+## Development achievements:
 
-- [x] Estruturar front-end
-- [x] Começar o desenvolvimento do MVP de componentes (front-end).
-- [ ] Começar o desenvolvimento do MVP do servidor (back-end).
-- [ ] Estruturar o projeto para receber contribuições de voluntários.
+- [x] Consolidate front-end structure.
+- [x] Begin initial (MVP) components development (front-end).
+- [ ] Begin initial server development (back-end).
+- [ ] Consolidate the whole project to receive contributions from anyone in OSS community.
