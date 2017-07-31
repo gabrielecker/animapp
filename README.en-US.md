@@ -17,7 +17,7 @@ Like our Facebook page! [http://www.facebook.com/animapp.dev](http://www.faceboo
 ![Tela1](http://i.imgur.com/GskS6NH.png)
 ![Tela2](http://i.imgur.com/XDa192l.png)
 
-## What is the currently technology stack?
+## What is the current technology stack?
 
 Front-end:
 * [React](https://facebook.github.io/react/)
