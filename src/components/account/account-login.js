@@ -2,6 +2,7 @@ import React,{Component, PropTypes} from 'react';
 import {Grid, Form} from 'semantic-ui-react';
 import {Link} from 'react-router';
 import ScreenHeader from '../shared/screen-header';
+import classnames from 'classnames';
 
 class AccountLogin extends Component{
 
@@ -14,26 +15,31 @@ class AccountLogin extends Component{
     this.state = {
       email: '',
       password: '',
+      errors: {}
     };
   }
 
-  handleChange(field, event, { value }) {
-    const updatedValue = {};
-
-    switch (field) {
-      default:
-        updatedValue[field] = value || event.target.value;
-    }
-
-    this.setState(updatedValue);
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
   }
 
-  handleSubmit(event){
-    const { setLoading, loginAccount} = this.props;
+  validateForm(fields) {
+    const errors = {};
+    Object.keys(fields).map(key => {
+      if(fields[key] === "") errors[key] = "Campo obrigatório";
+    });
+    this.setState({ errors });
+  }
+
+  handleSubmit = (event) => {
+    const {setLoading, loginAccount} = this.props;
     const {email, password} = this.state;
     const {router} = this.context;
 
     event.preventDefault();
+    this.validateForm({email, password});
     setLoading(true);
 
     loginAccount({
@@ -42,10 +48,12 @@ class AccountLogin extends Component{
     }).then(res=>{
       setLoading(false);
       if(res.error){
-        alert('Falha no login!');
+        throw res.payload.message;
       }else{
         router.push('/pets');
       }
+    }).catch(err=>{
+      this.setState({errors: {...this.state.errors, login: err}});
     });
   }
 
@@ -59,27 +67,33 @@ class AccountLogin extends Component{
           <Grid.Column width={4}>
           </Grid.Column>
           <Grid.Column width={8}>
+            <span className="error error-title">{this.state.errors.login}</span>
             <Form>
-              <Form.Group>
+              <span className="error">{this.state.errors.email}</span>
+              <Form.Group className={classnames('field', {error: Boolean(this.state.errors.email)})}>
                 <Form.Input
+                  name="email"
                   label="E-mail"
                   value={this.state.email}
-                  onChange={(event, value) => this.handleChange('email', event, value || {})}
+                  onChange={this.handleChange}
+                  type="email"
                   width={16}
                 />
               </Form.Group>
-              <Form.Group>
+              <span className="error">{this.state.errors.password}</span>
+              <Form.Group className={classnames('field', {error: Boolean(this.state.errors.password)})}>
                 <Form.Input
+                  name="password"
                   label="Senha"
                   value={this.state.password}
-                  onChange={(event, value) => this.handleChange('password', event, value || {})}
+                  onChange={this.handleChange}
                   type="password"
                   width={16}
                 />
               </Form.Group>
               <Form.Group>
                 <Form.Button
-                  onClick={event => this.handleSubmit(event)}
+                  onClick={this.handleSubmit}
                   primary
                   fluid
                   width={8}

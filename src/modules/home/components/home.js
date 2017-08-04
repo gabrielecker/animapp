@@ -51,6 +51,7 @@ class Home extends Component {
               id="jc5XQSVeQ2c"
               placeholder="./assets/image/animapp_logo.png"
               source="youtube"
+              aspectRatio="4:3"
             />
           </Grid.Column>
         </Grid.Row>
