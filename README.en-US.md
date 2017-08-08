@@ -34,7 +34,7 @@ Back-end:
 
 ### Front-end:
 
-Simply clone the repository and run `npm install` on the project root directory. After installing the packages run `npm start` and access through `http://localhost:8080` (or any custom port in case you change the default).
+Simply clone the repository and run `yarn install` on the project root directory. After installing the packages run `npm start` and access through `http://localhost:8080` (or any custom port in case you change the default).
 
 ### Back-end:
 

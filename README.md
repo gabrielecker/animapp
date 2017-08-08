@@ -34,7 +34,7 @@ Back-end:
 
 ### Front-end:
 
-Basta clonar o repositório e executar o comando `npm install` no diretório principal. Após a instalação de todos os pacotes execute o comando `npm start` e acesse o link `http://localhost:8080` (ou a porta que você configurar) para acessar o aplicativo.
+Basta clonar o repositório e executar o comando `yarn install` no diretório principal. Após a instalação de todos os pacotes execute o comando `npm start` e acesse o link `http://localhost:8080` (ou a porta que você configurar) para acessar o aplicativo.
 
 ### Back-end:
 
